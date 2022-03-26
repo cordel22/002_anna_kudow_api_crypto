@@ -9,6 +9,8 @@ const CurrencyConverter = () => {
   const [chosenSecondaryCurrency, setChosenSecondaryCurrency] = useState('BTC')
   const [amount, setAmount] = useState(1)
   const [exchangeRate, setExchangeRate] = useState(0)
+  const [primaryCurrencyExchanged, setPrimaryCurrencyExchanged] = useState(0)
+  const [secondaryCurrencyExchanged, setSecondaryCurrencyExchanged] = useState(0)
   const [result, setResult] = useState(0)
 
   console.log(amount)
@@ -30,6 +32,8 @@ axios.request(options).then(/* function  */(response) => {   //  cubk dala ()=>
 	console.log(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"])
   setExchangeRate(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"])
   setResult(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"] * amount)
+  setPrimaryCurrencyExchanged(chosenPrimaryCurrency)
+  setSecondaryCurrencyExchanged(chosenSecondaryCurrency)
 }).catch(function (error) {
 	console.error(error);
 });
@@ -98,8 +102,8 @@ axios.request(options).then(/* function  */(response) => {   //  cubk dala ()=>
       
       <ExchangeRate
         exchangeRate={exchangeRate}
-        chosenPrimaryCurrency={chosenPrimaryCurrency}
-        chosenSecondaryCurrency={chosenSecondaryCurrency}
+        chosenPrimaryCurrency={primaryCurrencyExchanged/* chosenPrimaryCurrency */}
+        chosenSecondaryCurrency={secondaryCurrencyExchanged/* chosenSecondaryCurrency */}
          />
     </div>
   )
