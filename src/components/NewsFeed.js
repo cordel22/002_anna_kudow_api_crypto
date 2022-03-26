@@ -26,10 +26,13 @@ const NewsFeed = () => {
   }, [])
 
   console.log(articles)
-  
+
+  const first7Articles = articles?.slice(0,7)
+
   return (
     <div className="news-feed">
-      NewsFeed
+      <h2>NewsFeed</h2>
+      {first7Articles?.map( article => (<p>{article.title}</p>))}
     </div>
   )/* ; */
 }
