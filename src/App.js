@@ -3,10 +3,13 @@ import CurrencyConverter from './components/CurrencyConverter';
 
 function App() {
   return (
+
     <div className="app">
-      <CurrencyConverter />
-      <NewsFeed />
-        
+      <h1>Crypto Dashboard</h1>
+      <div className="app_wrapper">
+        <CurrencyConverter />
+        <NewsFeed />
+      </div>  
     </div>
   )/* ; */
 }
