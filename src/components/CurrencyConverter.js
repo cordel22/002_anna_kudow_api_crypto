@@ -22,7 +22,7 @@ const/* var */ options = {
   params: {to_currency: chosenSecondaryCurrency, function: 'CURRENCY_EXCHANGE_RATE', from_currency: chosenPrimaryCurrency},
   headers: {
     'X-RapidAPI-Host': 'alpha-vantage.p.rapidapi.com',
-    'X-RapidAPI-Key': '1bedd33a7bmsh412773e47664cc3p19bb9djsn252c65851c22'
+    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY
   }
 };
 
