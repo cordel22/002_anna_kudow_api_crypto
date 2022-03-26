@@ -55,7 +55,7 @@ axios.request(options).then(/* function  */(response) => {   //  cubk dala ()=>
 
   return (
     <div className="currency-converter">
-      <h2>CurrencyConcerter</h2>
+      <h2>CurrencyConverter</h2>
         <div className="input-box">
           <table>
             <tbody>
