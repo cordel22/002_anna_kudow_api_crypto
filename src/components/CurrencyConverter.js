@@ -8,9 +8,16 @@ const CurrencyConverter = () => {
   const [chosenPrimaryCurrency, setChosenPrimaryCurrency] = useState('BTC')
   const [chosenSecondaryCurrency, setChosenSecondaryCurrency] = useState('BTC')
   const [amount, setAmount] = useState(1)
-  const [exchangeRate, setExchangeRate] = useState(0)
-  const [primaryCurrencyExchanged, setPrimaryCurrencyExchanged] = useState(0)
-  const [secondaryCurrencyExchanged, setSecondaryCurrencyExchanged] = useState(0)
+  //  const [exchangeRate, setExchangeRate] = useState(0)
+ /*  const [primaryCurrencyExchanged, setPrimaryCurrencyExchanged] = useState(0)
+  const [secondaryCurrencyExchanged, setSecondaryCurrencyExchanged] = useState(0) */
+  
+  const [exchangedData, setExchangedData] = useState({
+    primaryCurrency: 'BTC',
+    secondaryCurrency: 'BTC',
+    exchangeRate: 0
+  })
+  
   const [result, setResult] = useState(0)
 
   console.log(amount)
@@ -30,16 +37,21 @@ const/* var */ options = {
 
 axios.request(options).then(/* function  */(response) => {   //  cubk dala ()=>
 	console.log(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"])
-  setExchangeRate(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"])
+  //  setExchangeRate(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"])
   setResult(response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"] * amount)
-  setPrimaryCurrencyExchanged(chosenPrimaryCurrency)
-  setSecondaryCurrencyExchanged(chosenSecondaryCurrency)
+  // setPrimaryCurrencyExchanged(chosenPrimaryCurrency)
+  // setSecondaryCurrencyExchanged(chosenSecondaryCurrency)
+  setExchangedData({
+    primaryCurrency: chosenPrimaryCurrency,
+    secondaryCurrency: chosenSecondaryCurrency,
+    exchangeRate: response.data['Realtime Currency Exchange Rate']["5. Exchange Rate"]
+  })
 }).catch(function (error) {
 	console.error(error);
 });
   }
 
-  console.log(exchangeRate)
+  /* console.log(exchangeRate) */
 
   return (
     <div className="currency-converter">
@@ -101,9 +113,10 @@ axios.request(options).then(/* function  */(response) => {   //  cubk dala ()=>
           </div>
       
       <ExchangeRate
-        exchangeRate={exchangeRate}
-        chosenPrimaryCurrency={primaryCurrencyExchanged/* chosenPrimaryCurrency */}
-        chosenSecondaryCurrency={secondaryCurrencyExchanged/* chosenSecondaryCurrency */}
+        /* exchangeRate={exchangeRate} */
+        exchangedData={exchangedData}
+        // chosenPrimaryCurrency={primaryCurrencyExchanged/* chosenPrimaryCurrency */}
+        // chosenSecondaryCurrency={secondaryCurrencyExchanged/* chosenSecondaryCurrency */}
          />
     </div>
   )
