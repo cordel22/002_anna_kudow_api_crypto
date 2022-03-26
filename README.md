@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+<!-- susta s a
+
+npm run start:frontend -->
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
