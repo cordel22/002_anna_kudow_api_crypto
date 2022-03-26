@@ -10,11 +10,12 @@ const NewsFeed = () => {
 
     const/* var */ options = {
       method: 'GET',
-      url: 'https://crypto-news-live3.p.rapidapi.com/news',
-      headers: {
+      /* url: 'https://crypto-news-live3.p.rapidapi.com/news', */
+      url: 'http://localhost:8000/news',
+      /* headers: {
         'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com',
         'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY
-      }
+      } */
     };
 
     axios.request(options).then(function (response) {     //  zas dala arrow
